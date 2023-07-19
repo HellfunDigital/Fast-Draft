@@ -1,30 +1,13 @@
-1. Exported Variables:
-   - `editor_window`: Instance of the EditorWindow class, used across multiple files for UI interactions.
-   - `document`: Instance of the Document class, used for storing and manipulating the text data.
-   - `openai_api`: Instance of the OpenAIIntegration class, used for interacting with the OpenAI API.
+1. "index.html": This file will contain the main structure of the application. Shared dependencies include DOM element IDs such as "textEditor", "generateButton", "outputDisplay" that will be used by JavaScript functions.
 
-2. Data Schemas:
-   - `DocumentSchema`: Schema for the document data, used in `document.py` and `test_document.py`.
-   - `OpenAIResponseSchema`: Schema for the response from OpenAI API, used in `openai_integration.py` and `test_openai_integration.py`.
+2. "styles.css": This file will contain the styling for the application. It will use the same IDs and class names defined in the "index.html" file such as "textEditor", "generateButton", "outputDisplay".
 
-3. DOM Element IDs:
-   - `textArea`: The main text area in the editor window.
-   - `generateButton`: Button to generate text using OpenAI.
-   - `saveButton`: Button to save the current document.
-   - `loadButton`: Button to load a document.
+3. "main.js": This file will contain the main logic of the application. It will use the DOM element IDs from "index.html" and functions from "openai_api.js" and "document_generator.js". Shared function names might include "init", "generateText", "displayOutput".
 
-4. Message Names:
-   - `generateText`: Message sent to trigger text generation using OpenAI.
-   - `saveDocument`: Message sent to save the current document.
-   - `loadDocument`: Message sent to load a document.
+4. "openai_api.js": This file will contain the functions to interact with the OpenAI API. It will export functions like "callOpenAI", which will be used in "main.js". It might also use a shared data schema for the API request and response.
 
-5. Function Names:
-   - `generate_text()`: Function to generate text using OpenAI, used in `main.py`, `openai_integration.py`, and `test_openai_integration.py`.
-   - `save_document()`: Function to save the current document, used in `main.py`, `document.py`, and `test_document.py`.
-   - `load_document()`: Function to load a document, used in `main.py`, `document.py`, and `test_document.py`.
-   - `update_text_area()`: Function to update the text area in the editor window, used in `main.py` and `editor_window.py`.
+5. "document_generator.js": This file will contain the logic to generate novel length documents. It will export functions like "generateDocument", which will be used in "main.js". It might also use a shared data schema for the document structure.
 
-6. Shared Libraries:
-   - `PyQt5`: Used for creating the UI, used in `main.py` and `editor_window.py`.
-   - `openai`: Used for interacting with the OpenAI API, used in `openai_integration.py` and `test_openai_integration.py`.
-   - `unittest`: Used for writing tests, used in all `test_*.py` files.
+Shared data schemas might include "apiRequest", "apiResponse", "documentStructure". These schemas define the structure of data that is sent to and received from the OpenAI API, and the structure of the generated document respectively.
+
+Shared message names might include "generationComplete", "error". These messages are used to communicate the status of the document generation process between different parts of the application.
