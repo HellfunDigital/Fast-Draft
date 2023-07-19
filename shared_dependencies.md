@@ -1,13 +1,28 @@
-1. "index.html": This file will contain the main structure of the application. Shared dependencies include DOM element IDs such as "textEditor", "generateButton", "outputDisplay" that will be used by JavaScript functions.
+1. "text_editor/main.py": This is the main entry point of the application. It will import and use functions from "editor.py", "openai_interface.py", and "document.py". Shared dependencies include the "Editor" class from "editor.py", the "OpenAIInterface" class from "openai_interface.py", and the "Document" class from "document.py".
 
-2. "styles.css": This file will contain the styling for the application. It will use the same IDs and class names defined in the "index.html" file such as "textEditor", "generateButton", "outputDisplay".
+2. "text_editor/editor.py": This file contains the "Editor" class which is used to manipulate the text of the document. It will import and use the "Document" class from "document.py". Shared dependencies include the "Document" class from "document.py".
 
-3. "main.js": This file will contain the main logic of the application. It will use the DOM element IDs from "index.html" and functions from "openai_api.js" and "document_generator.js". Shared function names might include "init", "generateText", "displayOutput".
+3. "text_editor/openai_interface.py": This file contains the "OpenAIInterface" class which is used to interact with the OpenAI API. It will import and use the "Document" class from "document.py". Shared dependencies include the "Document" class from "document.py".
 
-4. "openai_api.js": This file will contain the functions to interact with the OpenAI API. It will export functions like "callOpenAI", which will be used in "main.js". It might also use a shared data schema for the API request and response.
+4. "text_editor/document.py": This file contains the "Document" class which represents the document being edited. It does not import any other files, but its "Document" class is used by the other files.
 
-5. "document_generator.js": This file will contain the logic to generate novel length documents. It will export functions like "generateDocument", which will be used in "main.js". It might also use a shared data schema for the document structure.
+5. "text_editor/tests/test_editor.py": This file contains tests for the "Editor" class. It will import and use the "Editor" class from "editor.py" and the "Document" class from "document.py". Shared dependencies include the "Editor" class from "editor.py" and the "Document" class from "document.py".
 
-Shared data schemas might include "apiRequest", "apiResponse", "documentStructure". These schemas define the structure of data that is sent to and received from the OpenAI API, and the structure of the generated document respectively.
+6. "text_editor/tests/test_openai_interface.py": This file contains tests for the "OpenAIInterface" class. It will import and use the "OpenAIInterface" class from "openai_interface.py" and the "Document" class from "document.py". Shared dependencies include the "OpenAIInterface" class from "openai_interface.py" and the "Document" class from "document.py".
 
-Shared message names might include "generationComplete", "error". These messages are used to communicate the status of the document generation process between different parts of the application.
+7. "text_editor/tests/test_document.py": This file contains tests for the "Document" class. It will import and use the "Document" class from "document.py". Shared dependencies include the "Document" class from "document.py".
+
+Shared Function Names:
+- "edit_text" in "editor.py"
+- "generate_text" in "openai_interface.py"
+- "add_text", "remove_text" in "document.py"
+
+Shared Class Names:
+- "Editor" in "editor.py"
+- "OpenAIInterface" in "openai_interface.py"
+- "Document" in "document.py"
+
+Shared Test Names:
+- "test_edit_text" in "test_editor.py"
+- "test_generate_text" in "test_openai_interface.py"
+- "test_add_text", "test_remove_text" in "test_document.py"
